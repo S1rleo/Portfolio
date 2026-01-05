@@ -1,30 +1,34 @@
-import { motion } from 'framer-motion';
+import { Canvas } from '@react-three/fiber';
+import { Suspense } from 'react';
 import './Hero.css';
+import heroBg from '../assets/CVback.jpg';
+import { Experience } from './Experience';
 
 const Hero = () => {
     return (
-        <section className="hero-section">
-            <div className="glow-aura" /> {/* Background Glow */}
+        <section
+            className="hero-section"
+            style={{
+                backgroundImage: `url(${heroBg})`,
+                backgroundSize: 'contain',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
+            <div className="glow-aura" />
 
             <div className="hero-content container">
-                <motion.h1
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="hero-title"
-                >
-                    PORTFOLIO <br />
-                    <span className="outline-text">CREATIVE</span>
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.8 }}
-                    className="hero-subtitle"
-                >
-                    VISUAL EXPERIENCE
-                </motion.p>
+                <div className="model-container">
+                    <Canvas
+                        gl={{ alpha: true, antialias: true }}
+                        camera={{ position: [0, 0, 3], fov: 50 }}
+                        style={{ width: '100%', height: '100%', background: 'transparent' }}
+                    >
+                        <Suspense fallback={null}>
+                            <Experience />
+                        </Suspense>
+                    </Canvas>
+                </div>
             </div>
         </section>
     );
