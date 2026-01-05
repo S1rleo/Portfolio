@@ -2,7 +2,7 @@ import { OrbitControls, useGLTF, Center } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 
-const MODEL_PATH = `${import.meta.env.BASE_URL}models/leotextures.glb`;
+const MODEL_PATH = `${import.meta.env.BASE_URL}models/leotextures-compressed.glb`;
 
 function Model() {
     const { scene } = useGLTF(MODEL_PATH);
