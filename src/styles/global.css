@@ -3,12 +3,14 @@
 :root {
   --color-bg: #050505;
   --color-text: #ffffff;
-  --color-accent: #0044ff; /* Deep Blue */
-  --color-accent-glow: #0088ff; /* Lighter Blue for glow */
+  --color-accent: #0044ff;
+  /* Deep Blue */
+  --color-accent-glow: #0088ff;
+  /* Lighter Blue for glow */
   --color-grid: rgba(255, 255, 255, 0.05);
-  
+
   --font-main: 'Inter', sans-serif;
-  
+
   --spacing-container: 120px;
 }
 
@@ -16,6 +18,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 body {
@@ -35,4 +51,12 @@ a {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+canvas {
+  cursor: grab;
+}
+
+canvas:active {
+  cursor: grabbing;
 }

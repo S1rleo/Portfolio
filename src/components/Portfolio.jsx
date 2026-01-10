@@ -1,8 +1,8 @@
 
 const Portfolio = () => {
     return (
-        <section style={{ padding: '100px 20px', background: '#080808' }}>
-            <div className="container">
+        <section id="portfolio" style={{ padding: '0 20px', minHeight: '100vh', display: 'flex', alignItems: 'center', background: '#080808', scrollSnapAlign: 'start' }}>
+            <div className="container" style={{ width: '100%' }}>
                 <h2 style={{ fontSize: '4rem', marginBottom: '4rem', textTransform: 'uppercase', textAlign: 'right', color: '#333' }}>Selected Works</h2>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '40px' }}>
                     {[1, 2, 3, 4].map((item) => (

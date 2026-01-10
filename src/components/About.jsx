@@ -1,7 +1,7 @@
 
 const About = () => {
     return (
-        <section id="about" style={{ padding: '150px 20px', display: 'flex', justifyContent: 'center' }}>
+        <section id="about" style={{ padding: '0 20px', minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center', scrollSnapAlign: 'start' }}>
             <div className="container" style={{ display: 'flex', gap: '50px', alignItems: 'center' }}>
                 <div style={{ flex: 1 }}>
                     <h2 style={{ fontSize: '3rem', marginBottom: '2rem' }}>ABOUT ME</h2>
