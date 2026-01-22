@@ -1,27 +1,20 @@
 .hero-section {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
-    background-color: #000;
     overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #000;
     scroll-snap-align: start;
 }
 
-/* 16:9 Aspect Ratio Container - Ensures perfect alignment on all screens */
 .hero-aspect-ratio-container {
     position: relative;
-    height: 100vh;
-    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: 100%;
     max-width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
 }
 
-/* Background layer */
 .hero-base-img {
     position: absolute;
     top: 0;
@@ -29,66 +22,46 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+    /* Changed to contain to avoid cutting the project arrow and other details */
     z-index: 1;
 }
 
-/* Icon and Bar Scaling - ULTRA-MINIMAL REFINED SIZE */
-.skill-icon,
-.lang-flag,
-.skill-bars,
-.lang-bars {
-    height: 3.2%;
-    /* Further reduced for a super clean, minimal look */
-    width: auto;
-    object-fit: contain;
-    display: block;
+.hero-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    /* Behind the UI icons (z-index 20) but likely fine */
+    pointer-events: none;
+    /* Allows interacting with UI behind it if z-indexes were different, but here it lets clicks pass to icons */
 }
 
-/* Ensure no negative margin remains */
-.overlay-row img+img {
-    margin-left: 0;
+.hero-canvas-container canvas {
+    pointer-events: auto;
+    /* Re-enable interactivity on the canvas itself */
 }
 
-/* Interactive Labels */
 .hero-skill-label {
     position: absolute;
-    bottom: 120%;
-    /* Position above the row */
-    left: 0;
-    background: rgba(0, 0, 0, 0.85);
-    color: #4ade80;
-    /* Neon green */
-    padding: 6px 12px;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 4px 10px;
     border-radius: 4px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     white-space: nowrap;
-    pointer-events: none;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 100;
-    border: 1px solid rgba(74, 222, 128, 0.3);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-skill-label.visible {
     opacity: 1;
-    transform: translateY(0);
 }
 
-.hero-skill-label::after {
-    content: '';
-    position: absolute;
-    top: 100%;
-    left: 15px;
-    border: 6px solid transparent;
-    border-top-color: rgba(0, 0, 0, 0.85);
-}
-
-/* Row sharpening */
-img {
-    image-rendering: -webkit-optimize-contrast;
-    user-select: none;
+.skill-item-wrapper:hover .hero-skill-label {
+    opacity: 1;
 }

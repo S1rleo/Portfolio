@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 import './Navigation.css';
 
 const Navigation = () => {
@@ -20,7 +20,7 @@ const Navigation = () => {
 
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div
+                    <Motion.div
                         className="menu-overlay"
                         variants={menuVariants}
                         initial="closed"
@@ -29,7 +29,7 @@ const Navigation = () => {
                     >
                         <nav className="menu-links">
                             {['HOME', 'PROJECTS', 'ABOUT', 'CONTACT'].map((item, index) => (
-                                <motion.a
+                                <Motion.a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}
                                     className="menu-link"
@@ -39,10 +39,10 @@ const Navigation = () => {
                                     onClick={toggleMenu}
                                 >
                                     {item}
-                                </motion.a>
+                                </Motion.a>
                             ))}
                         </nav>
-                    </motion.div>
+                    </Motion.div>
                 )}
             </AnimatePresence>
         </>

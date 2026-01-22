@@ -11,7 +11,7 @@ export default function Scene() {
     return (
         <Canvas
             dpr={[1, 2]}
-            camera={{ position: [3.2, 0, 3.2], fov: 28 }}
+            camera={{ position: [3, 0.5, 3], fov: 21 }} // Increased FOV to 21 for another 5% reduction in size
             gl={{
                 antialias: true,
                 dithering: false,

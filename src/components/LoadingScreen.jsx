@@ -1,5 +1,3 @@
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import './LoadingScreen.css';
 import videoLoading from '../assets/LOADING.mp4';
 

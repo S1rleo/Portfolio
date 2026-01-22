@@ -1,5 +1,6 @@
 import './Hero.css';
 import React from 'react';
+import Scene from './canvas/Scene';
 
 // 1. Base Image
 import sobreBase from '../assets/hero/Sobre_base.png';
@@ -126,6 +127,11 @@ const Hero = () => {
             <div className="hero-aspect-ratio-container">
                 {/* 1. Background layer */}
                 <img src={sobreBase} alt="" className="hero-base-img" />
+
+                {/* 2. 3D Viewer layer */}
+                <div className="hero-canvas-container">
+                    <Scene />
+                </div>
 
                 {/* SKILLS */}
                 <div style={skillsContainerStyle}>
