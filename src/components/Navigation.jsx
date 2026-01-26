@@ -28,7 +28,7 @@ const Navigation = () => {
                         exit="closed"
                     >
                         <nav className="menu-links">
-                            {['HOME', 'PROJECTS', 'ABOUT', 'CONTACT'].map((item, index) => (
+                            {['HOME', 'PROJECTS', 'CONTACT'].map((item, index) => (
                                 <Motion.a
                                     key={item}
                                     href={`#${item.toLowerCase()}`}

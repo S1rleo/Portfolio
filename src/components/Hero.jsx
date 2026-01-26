@@ -3,31 +3,31 @@ import React from 'react';
 import Scene from './canvas/Scene';
 
 // 1. Base Image
-import sobreBase from '../assets/hero/Sobre_base.png';
+import sobreBase from '../assets/hero/Sobre_base.webp';
 
 // 2. Skill Icons
-import photoshopIcon from '../assets/hero/phootoshop.png';
-import illustratorIcon from '../assets/hero/illustrator.png';
-import afterEffectsIcon from '../assets/hero/aftereffects.png';
-import vibeCodingIcon from '../assets/hero/vibecoding.png';
-import cinema4dIcon from '../assets/hero/cinema4d.png';
+import photoshopIcon from '../assets/hero/phootoshop.webp';
+import illustratorIcon from '../assets/hero/illustrator.webp';
+import afterEffectsIcon from '../assets/hero/aftereffects.webp';
+import vibeCodingIcon from '../assets/hero/vibecoding.webp';
+import cinema4dIcon from '../assets/hero/cinema4d.webp';
 
 // 3. Skill Progress Bars
-import photoshopBars from '../assets/hero/photoshopbarras.png';
-import illustratorBars from '../assets/hero/illustratorbarras.png';
-import afterEffectsBars from '../assets/hero/aftereffects barras.png';
-import vibeCodingBars from '../assets/hero/vibecodingbarras.png';
-import cinema4dBars from '../assets/hero/cinema4dbarras.png';
+import photoshopBars from '../assets/hero/photoshopbarras.webp';
+import illustratorBars from '../assets/hero/illustratorbarras.webp';
+import afterEffectsBars from '../assets/hero/aftereffects barras.webp';
+import vibeCodingBars from '../assets/hero/vibecodingbarras.webp';
+import cinema4dBars from '../assets/hero/cinema4dbarras.webp';
 
 // 4. Language Flags
-import portuguesFlag from '../assets/hero/portugues.png';
-import inglesFlag from '../assets/hero/ingles.png';
-import francesFlag from '../assets/hero/frances.png';
+import portuguesFlag from '../assets/hero/portugues.webp';
+import inglesFlag from '../assets/hero/ingles.webp';
+import francesFlag from '../assets/hero/frances.webp';
 
 // 5. Language Progress Bars
-import portuguesBars from '../assets/hero/portuguesbarras.png';
-import inglesBars from '../assets/hero/inglesbarras.png';
-import francesBars from '../assets/hero/francesbarras.png';
+import portuguesBars from '../assets/hero/portuguesbarras.webp';
+import inglesBars from '../assets/hero/inglesbarras.webp';
+import francesBars from '../assets/hero/francesbarras.webp';
 
 // Utility component for interactive skills/languages
 const SkillItem = ({ icon, bars, label, color, iconStyle, barStyle, rowStyle }) => {

@@ -28,19 +28,23 @@
 
 .hero-canvas-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 50%;
+    left: 49.5%;
+    /* Slightly adjusted to align with design */
+    transform: translate(-50%, -50%);
+    width: 25vw;
+    /* Restricted interaction width */
+    height: 80vh;
+    /* Restricted interaction height */
     z-index: 5;
-    /* Behind the UI icons (z-index 20) but likely fine */
     pointer-events: none;
-    /* Allows interacting with UI behind it if z-indexes were different, but here it lets clicks pass to icons */
+    /* Optional: border: 1px solid rgba(255, 0, 0, 0.3); // For debugging area */
 }
 
 .hero-canvas-container canvas {
     pointer-events: auto;
-    /* Re-enable interactivity on the canvas itself */
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .hero-skill-label {

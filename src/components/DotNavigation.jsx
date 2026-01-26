@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './DotNavigation.css';
+import sidebarImg from '../assets/layout/sidebar.webp';
 
 const sections = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
+    { id: 'home', label: 'Sobre Mim' },
+    { id: 'projects-gallery', label: 'Projetos' },
     { id: 'portfolio', label: 'Works' },
-    { id: 'projects', label: 'Projects' },
     { id: 'contact', label: 'Contact' }
 ];
 
@@ -59,7 +59,6 @@ const DotNavigation = () => {
 
     return (
         <nav className="dot-navigation">
-            <div className="nav-track"></div>
             {sections.map((section) => (
                 <div
                     key={section.id}
@@ -67,7 +66,7 @@ const DotNavigation = () => {
                     onClick={() => scrollToSection(section.id)}
                 >
                     <span className="dot-label">{section.label}</span>
-                    <div className="dot"></div>
+                    <img src={sidebarImg} alt="" className="dot" />
                 </div>
             ))}
         </nav>

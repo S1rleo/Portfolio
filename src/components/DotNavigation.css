@@ -1,12 +1,12 @@
 .dot-navigation {
     position: fixed;
-    right: 40px;
+    right: 30px;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 25px;
+    gap: 15px;
     z-index: 1000;
 }
 
@@ -23,16 +23,14 @@
     cursor: pointer;
 }
 
-/* Thicker, Shorter Horizontal Bar */
+/* Image-based "tracinho" dots */
 .dot {
-    width: 25px;
-    /* Shorter */
-    height: 3px;
-    /* Thicker */
-    background-color: rgba(255, 255, 255, 0.15);
+    width: 35px;
+    /* Adjust to match desired size */
+    height: auto;
+    opacity: 0.3;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    border-radius: 1px;
-    /* Subtle roundness for the "thick" look */
+    filter: brightness(0.8);
 }
 
 .dot-label {
@@ -52,11 +50,9 @@
 
 /* Hover effects */
 .dot-wrapper:hover .dot {
-    background-color: #fff;
+    opacity: 0.8;
     width: 45px;
-    /* Shorter hover */
-    height: 4px;
-    /* Thicker hover */
+    filter: brightness(1.2);
 }
 
 .dot-wrapper:hover .dot-label {
@@ -66,12 +62,9 @@
 
 /* Active state */
 .dot-wrapper.active .dot {
-    background-color: #fff;
+    opacity: 1;
     width: 55px;
-    /* Shorter active */
-    height: 4px;
-    /* Thicker active */
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    filter: brightness(1.5) drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
 }
 
 /* Temporary Visibility Logic */
