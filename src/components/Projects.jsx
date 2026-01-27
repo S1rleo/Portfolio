@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../translations/translations';
 import './Projects.css';
 
 // Project Assets - Urban Echoes
@@ -17,44 +19,28 @@ import hiphopJoint from '../assets/projects/hiphop2/JOINT.webp';
 import hiphopLali from '../assets/projects/hiphop2/LALI.webp';
 import hiphopMikelenite from '../assets/projects/hiphop2/MIKELENITE.webp';
 import hiphopXtinto from '../assets/projects/hiphop2/XTINTO.webp';
+import titlesImgPt from '../assets/projects/TITULOS.png';
+import titlesImgEn from '../assets/projects/TITULOS_en.png';
 
-const projectsData = [
+// Project data with translation keys
+const getProjectsData = (language) => [
     {
         id: 1,
-        title: "Urban Echoes — Portuguese Hip-Hop Collectibles #1",
-        category: "Graphic Design / Digital Collage",
+        title: t('projects', 'urbanEchoesTitle', language),
+        category: t('projects', 'urbanEchoesCategory', language),
         type: "image",
         thumbnail: hiphop1,
         images: [hiphop1, hiphopWugori, hiphopHeartless, hiphopPng, hiphopMaudito, hiphopVspast],
-        description: `Coleção de cartas colecionáveis inspirada na estética e atitude do hip-hop português. Cada peça combina colagem digital, tipografia e cor para traduzir a identidade única de cada artista, mantendo coerência visual em toda a série.\n\nUm projeto focado em expressão, contraste e narrativa visual, pensado para formato digital e apresentação de portfolio. Desenvolvido em Adobe Photoshop.`,
-        tag: "FEATURED"
+        description: t('projects', 'urbanEchoesDescription', language)
     },
     {
         id: 2,
-        title: "Urban Echoes — Portuguese Hip-Hop Collectibles #2",
-        category: "Graphic Design / Digital Collage",
+        title: t('projects', 'urbanEchoes2Title', language),
+        category: t('projects', 'urbanEchoes2Category', language),
         type: "image",
         thumbnail: hiphop2,
         images: [hiphop2, hiphopLali, hiphopAmeal, hiphopXtinto, hiphopJoint, hiphopMikelenite],
-        description: `Coleção de cartas colecionáveis inspirada na estética e atitude do hip-hop português. Cada peça combina colagem digital, tipografia e cor para traduzir a identidade única de cada artista, mantendo coerência visual em toda a série.\n\nUm projeto focado em expressão, contraste e narrativa visual, pensado para formato digital e apresentação de portfolio. Desenvolvido em Adobe Photoshop.`,
-        tag: "NEW"
-    },
-    {
-        id: 3,
-        title: "Abstract Motion",
-        category: "3D Animation / Design",
-        type: "video",
-        thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=800",
-        videoSrc: "",
-        tag: "CGI"
-    },
-    {
-        id: 3,
-        title: "Cyberpunk City",
-        category: "Illustration / Concept Art",
-        type: "image",
-        thumbnail: "https://images.unsplash.com/photo-1605806616949-1e87b487fc2f?auto=format&fit=crop&q=80&w=800",
-        tag: "NEW"
+        description: t('projects', 'urbanEchoes2Description', language)
     }
 ];
 
@@ -85,7 +71,6 @@ const ProjectCard = ({ project, onClick }) => {
             onMouseLeave={handleMouseLeave}
             onClick={() => onClick(project)}
         >
-            <div className="project-tag">{project.tag}</div>
             <div className="project-media-container">
                 {project.type === 'video' && project.videoSrc ? (
                     <video
@@ -257,6 +242,8 @@ const ProjectModal = ({ project, onClose }) => {
 
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(null);
+    const { language } = useLanguage();
+    const projectsData = getProjectsData(language);
 
     useEffect(() => {
         if (selectedProject) {
@@ -269,8 +256,7 @@ const Projects = () => {
     return (
         <section id="projects-gallery" className="projects-section">
             <div className="projects-header">
-                <h2>MY WORK</h2>
-                <span className="highlight">Selected Projects</span>
+                <img src={language === 'pt' ? titlesImgPt : titlesImgEn} alt="My Work - Selected Projects" className="header-titles-img" />
             </div>
 
             <div className="projects-grid">

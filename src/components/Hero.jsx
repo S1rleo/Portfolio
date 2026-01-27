@@ -1,9 +1,12 @@
 import './Hero.css';
 import React from 'react';
 import Scene from './canvas/Scene';
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../translations/translations';
 
 // 1. Base Image
-import sobreBase from '../assets/hero/Sobre_base.webp';
+import sobreBasePt from '../assets/hero/Sobre_base.webp';
+import sobreBaseEn from '../assets/hero/Sobre_base_en.jpg';
 
 // 2. Skill Icons
 import photoshopIcon from '../assets/hero/phootoshop.webp';
@@ -73,6 +76,8 @@ const SkillItem = ({ icon, bars, label, color, iconStyle, barStyle, rowStyle }) 
 };
 
 const Hero = () => {
+    const { language } = useLanguage();
+
     // v8.0 - Independent item control
     const skillIconStyle = {
         height: '4.2vh',
@@ -126,7 +131,7 @@ const Hero = () => {
         <section id="home" className="hero-section">
             <div className="hero-aspect-ratio-container">
                 {/* 1. Background layer */}
-                <img src={sobreBase} alt="" className="hero-base-img" />
+                <img src={language === 'pt' ? sobreBasePt : sobreBaseEn} alt="" className="hero-base-img" />
 
                 {/* 2. 3D Viewer layer */}
                 <div className="hero-canvas-container">
@@ -144,15 +149,14 @@ const Hero = () => {
 
                 {/* LANGUAGES */}
                 <div style={langsContainerStyle}>
-                    <SkillItem icon={portuguesFlag} bars={portuguesBars} label="Português" color="239, 68, 68" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
-                    <SkillItem icon={inglesFlag} bars={inglesBars} label="Inglês" color="59, 130, 246" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
-                    <SkillItem icon={francesFlag} bars={francesBars} label="Francês" color="255, 255, 255" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
+                    <SkillItem icon={portuguesFlag} bars={portuguesBars} label={t('hero', 'portuguese', language)} color="239, 68, 68" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
+                    <SkillItem icon={inglesFlag} bars={inglesBars} label={t('hero', 'english', language)} color="59, 130, 246" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
+                    <SkillItem icon={francesFlag} bars={francesBars} label={t('hero', 'french', language)} color="255, 255, 255" iconStyle={langIconStyle} barStyle={barStyle} rowStyle={rowStyle} />
                 </div>
             </div>
         </section>
     );
 };
-
 
 
 export default Hero;

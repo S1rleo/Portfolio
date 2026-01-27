@@ -1,33 +1,30 @@
 .projects-section {
-    padding: 100px 20px;
+    padding: 100px 0;
+    /* Vertical padding only, horizontal handled by children or this section */
     min-height: 100vh;
-    background: #050505;
+    background: #000;
+    /* Pure black to match Hero */
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
+    /* Align content to the left */
 }
 
 .projects-header {
     width: 100%;
-    max-width: 1400px;
     margin-bottom: 60px;
+    padding-left: 9.5%;
+    /* Final fine-tuning to match "Sobre Mim" title in Hero background */
 }
 
-.projects-header h2 {
-    font-size: clamp(3rem, 8vw, 5rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.05);
-    line-height: 0.8;
-    margin-bottom: -0.2em;
-}
-
-.projects-header .highlight {
-    font-size: clamp(1.5rem, 4vw, 2.5rem);
-    color: #fff;
-    display: block;
-    margin-left: 0.1em;
+.header-titles-img {
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: contain;
+    opacity: 0.9;
 }
 
 .projects-grid {
@@ -35,7 +32,8 @@
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 1400px;
+    padding: 0 5% 0 9.5%;
+    /* Final fine-tuning to match "Sobre Mim" title in Hero background */
 }
 
 @media (max-width: 600px) {
@@ -56,9 +54,7 @@
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    border-color: rgba(0, 68, 255, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 68, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .project-media-container {
@@ -79,7 +75,7 @@
 }
 
 .project-card:hover .project-img {
-    transform: scale(1.1);
+    /* Subtle zoom removed for maximum cleanliness */
 }
 
 .project-overlay {
@@ -90,13 +86,11 @@
     padding: 40px 30px 30px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
     z-index: 2;
-    transform: translateY(20px);
     opacity: 0;
     transition: all 0.4s ease;
 }
 
 .project-card:hover .project-overlay {
-    transform: translateY(0);
     opacity: 1;
 }
 

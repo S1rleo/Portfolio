@@ -1,0 +1,39 @@
+.language-switch {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-main);
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    mix-blend-mode: difference;
+}
+
+.language-switch span {
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s ease;
+}
+
+.language-switch span.active {
+    color: #fff;
+    font-weight: 700;
+}
+
+.language-switch .separator {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.language-switch:hover span {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.language-switch:hover span.active {
+    color: #fff;
+}

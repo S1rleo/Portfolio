@@ -49,9 +49,10 @@
 
 .hero-skill-label {
     position: absolute;
-    top: -25px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    right: calc(100% + 10px);
+    /* Position to the left of the icon */
+    transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.8);
     padding: 4px 10px;
     border-radius: 4px;

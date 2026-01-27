@@ -76,16 +76,14 @@
 }
 
 .menu-link {
+    font-family: var(--font-heading);
     font-size: 4rem;
-    font-weight: 900;
-    color: transparent;
-    -webkit-text-stroke: 1px #555;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.4);
     text-transform: uppercase;
     transition: all 0.3s ease;
 }
 
 .menu-link:hover {
     color: #fff;
-    -webkit-text-stroke: 1px #fff;
-    transform: scale(1.1);
 }

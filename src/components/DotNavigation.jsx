@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../context/LanguageContext';
+import { t } from '../translations/translations';
 import './DotNavigation.css';
 import sidebarImg from '../assets/layout/sidebar.webp';
 
-const sections = [
-    { id: 'home', label: 'Sobre Mim' },
-    { id: 'projects-gallery', label: 'Projetos' },
-    { id: 'portfolio', label: 'Works' },
-    { id: 'contact', label: 'Contact' }
+const sectionIds = [
+    { id: 'home', labelKey: 'aboutMe' },
+    { id: 'projects-gallery', labelKey: 'projects' },
+    { id: 'contact', labelKey: 'contact' }
 ];
 
 const DotNavigation = () => {
     const [activeSection, setActiveSection] = useState('home');
     const [showLabel, setShowLabel] = useState(false);
+    const { language } = useLanguage();
 
     useEffect(() => {
         const observerOptions = {
@@ -35,7 +37,7 @@ const DotNavigation = () => {
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-        sections.forEach((section) => {
+        sectionIds.forEach((section) => {
             const element = document.getElementById(section.id);
             if (element) observer.observe(element);
         });
@@ -59,13 +61,13 @@ const DotNavigation = () => {
 
     return (
         <nav className="dot-navigation">
-            {sections.map((section) => (
+            {sectionIds.map((section) => (
                 <div
                     key={section.id}
                     className={`dot-wrapper ${activeSection === section.id ? 'active' : ''} ${(activeSection === section.id && showLabel) ? 'show-temp-label' : ''}`}
                     onClick={() => scrollToSection(section.id)}
                 >
-                    <span className="dot-label">{section.label}</span>
+                    <span className="dot-label">{t('nav', section.labelKey, language)}</span>
                     <img src={sidebarImg} alt="" className="dot" />
                 </div>
             ))}
